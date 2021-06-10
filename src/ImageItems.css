@@ -1,0 +1,41 @@
+.render-animals{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    text-align: center;
+    word-wrap: break-word;
+}
+
+.group{
+    border: 5px double rgb(12, 167, 154);
+    border-radius: 10%;
+    background-color: rgb(156, 236, 223);
+    opacity: 0.8;
+    -webkit-box-shadow: 3px 5px 15px 5px rgba(19,176,186,0.6); 
+    box-shadow: 3px 5px 15px 5px rgba(19,176,186,0.6);
+    width: 300px;
+    height: 500px;
+}
+
+.group img:nth-child(2){
+    border: 3px double rgb(28, 109, 85);
+    border-radius: 10%;
+}
+
+.animal-text{
+    border-style: double;
+    background-color: rgb(28, 109, 85);
+    border-radius: 30%;
+    text-align: center;
+    color: honeydew;
+    word-wrap: normal;
+    justify-content: space-between;
+}
+
+h2{
+    color: honeydew;
+    background-color: rgb(74, 119, 145);
+    border-radius: 50%;
+}

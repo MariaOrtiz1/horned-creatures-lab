@@ -1,0 +1,8 @@
+.header-title{
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    background-color: brown;
+    border-radius: 10%;
+}
