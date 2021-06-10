@@ -3,6 +3,7 @@ import './App.css';
 import  {animals} from './data.js';
 import Header from './header.js';
 import ImageList from './ImageList'
+import Dropdown from './Dropdown';
 // import Body from './Body.js';
 
 
@@ -16,26 +17,28 @@ export default class App extends Component {
       this.setState({ filterHorns: e.target.value})
   }
 
+  handleKeyWordChange = (e) => {
+    this.setState({ filterKeywords: e.target.value})
+}
+
   render() {
       let filteredAnimals = animals; 
 
       if (this.state.filterHorns) {
-          filteredAnimals = animals.filter(animal => Number(animal.horns) === Number(this.state.filterHorns))
+          filteredAnimals = filteredAnimals.filter(animal => animal.horns === +(this.state.filterHorns))
       }
+      if (this.state.filterKeywords) {
+        filteredAnimals = filteredAnimals.filter(animal => animal.keyword === this.state.filterKeywords)
+    }
+
+    const animalTypeOptions = Array.from(new Set(animals.map(animal => animal.keyword)));
+    const animalHornsOptions = Array.from(new Set(animals.map(animal => animal.horns)));
       return (
-        <div>
+        <div className="main">
           <Header />
           <div>
-              <label>
-                  {/* calling back the event listerner */}
-                  <select onChange={this.handleAnimalChange}>
-                      <option value=''>All Animals</option>
-                      <option value='1'>1</option>
-                      <option value='2'>2</option>
-                      <option value='3'>3</option>
-                      <option value='100'>100</option>
-                  </select>
-              </label>
+                <Dropdown options={animalTypeOptions} event={this.handleKeyWordChange}/>
+                <Dropdown options={animalHornsOptions} event={this.handleAnimalChange}/>
               <ImageList zoo={filteredAnimals} />
           </div>
         </div>
